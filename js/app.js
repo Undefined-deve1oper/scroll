@@ -7,12 +7,12 @@ let zSpacing = -1000,
     frames = Array.from( $frames ),
     zVals = [];
 
-window.addEventListener("scroll",function () {
+window.addEventListener("scroll",function (e) {
 
     let top = document.documentElement.scrollTop,
         delta = lastPos - top
 
-    lastPos = top
+    lastPos = top;
 
     frames.forEach( function ( n, i ) {
         zVals.push( (i * zSpacing) + zSpacing )
@@ -20,8 +20,8 @@ window.addEventListener("scroll",function () {
         let frame = frames[i],
             transform = `translateZ(${ zVals[i] }px)`,
             opacity = zVals[i] < Math.abs( zSpacing ) / 1.8 ? 1 : 0
-        frame.setAttribute( 'style', `transform: ${ transform }; opacity: ${ opacity }` )
-    } )
+            frame.setAttribute( 'style', `transform: ${ transform }; opacity: ${ opacity }` );
+    } );
 
 });
 
@@ -33,17 +33,17 @@ let soundButton = document.querySelector( '.soundbutton' ),
     audio = document.querySelector( '.audio' )
 
 soundButton.addEventListener( 'click', e => {
-    soundButton.classList.toggle( 'paused' )
-    audio.paused ? audio.play() : audio.pause()
+    soundButton.classList.toggle( 'paused' );
+    audio.paused ? audio.play() : audio.pause();
 } )
 
-window.onfocus = function () {
-    soundButton.classList.contains( 'paused' ) ? audio.pause() : audio.play()
-}
+window.addEventListener("focus", function () {
+    soundButton.classList.contains( 'paused' ) ? audio.pause() : audio.play();
+});
 
-window.onblur = function () {
-    audio.pause()
-}
+window.addEventListener("blur", function () {
+    audio.pause();
+});
 
 const waitForImages = () => {
     const images = [...document.querySelectorAll("img")];
