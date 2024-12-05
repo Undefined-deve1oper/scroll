@@ -27,24 +27,6 @@ window.addEventListener("scroll",function (e) {
 
 window.scrollTo( 0, 1 );
 
-// Audio
-
-let soundButton = document.querySelector( '.soundbutton' ),
-    audio = document.querySelector( '.audio' )
-
-soundButton.addEventListener( 'click', e => {
-    soundButton.classList.toggle( 'paused' );
-    audio.paused ? audio.play() : audio.pause();
-} )
-
-window.addEventListener("focus", function () {
-    soundButton.classList.contains( 'paused' ) ? audio.pause() : audio.play();
-});
-
-window.addEventListener("blur", function () {
-    audio.pause();
-});
-
 const waitForImages = () => {
     const images = [...document.querySelectorAll("img")];
     const totalImages = images.length;
