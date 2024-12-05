@@ -27,7 +27,7 @@ window.addEventListener("scroll",function (e) {
 
 window.scrollTo( 0, 1 );
 
-const waitForImages = () => {
+/* const waitForImages = () => {
     const images = [...document.querySelectorAll("img")];
     const totalImages = images.length;
     let loadedImages = 0;
@@ -58,4 +58,4 @@ const waitForImages = () => {
     });
 };
 
-waitForImages();
+waitForImages();*/
